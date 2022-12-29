@@ -132,6 +132,26 @@ class InputConect:
         vacancy_name = input('Введите название профессии: ')
         return file_name, vacancy_name
 
+    # @staticmethod
+    # def formatter_date(date, form_date, result_form):
+    #     return datetime.strptime(date, form_date).strftime(result_form)
+
+    @staticmethod
+    def formatter_date_1(input_date, result_form):
+        i = 0
+        date = ''
+        for char in input_date:
+            date += str(char)
+            i += 1
+            if i == 10:
+                break
+        if result_form == '%Y-%m-%d':
+            list_date = date.split('.')
+            return f'{list_date[2]}-{list_date[1]}-{list_date[0]}'
+        else:
+            list_date = date.split('-')
+            return f'{list_date[2]}.{list_date[1]}.{list_date[0]}'
+
     @staticmethod
     def get_years_salary_dict(dictionary):
         """
